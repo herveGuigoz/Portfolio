@@ -49,29 +49,9 @@ class User implements UserInterface
     private $lastname;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
+     * @ORM\OneToOne(targetEntity="App\Entity\Resume", mappedBy="user", cascade={"persist", "remove"})
      */
-    private $description;
-
-    /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     */
-    private $situation;
-
-    /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     */
-    private $accroche;
-
-    /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Realisation", mappedBy="user")
-     */
-    private $realisations;
-
-    /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Experience", mappedBy="user")
-     */
-    private $experiences;
+    private $resume;
 
     public function __construct()
     {
@@ -181,99 +161,19 @@ class User implements UserInterface
         return $this;
     }
 
-    public function getDescription(): ?string
+    public function getResume(): ?Resume
     {
-        return $this->description;
+        return $this->resume;
     }
 
-    public function setDescription(?string $description): self
+    public function setResume(?Resume $resume): self
     {
-        $this->description = $description;
+        $this->resume = $resume;
 
-        return $this;
-    }
-
-    public function getSituation(): ?string
-    {
-        return $this->situation;
-    }
-
-    public function setSituation(string $situation): self
-    {
-        $this->situation = $situation;
-
-        return $this;
-    }
-
-    public function getAccroche(): ?string
-    {
-        return $this->accroche;
-    }
-
-    public function setAccroche(string $accroche): self
-    {
-        $this->accroche = $accroche;
-
-        return $this;
-    }
-
-    /**
-     * @return Collection|Realisation[]
-     */
-    public function getRealisations(): Collection
-    {
-        return $this->realisations;
-    }
-
-    public function addRealisation(Realisation $realisation): self
-    {
-        if (!$this->realisations->contains($realisation)) {
-            $this->realisations[] = $realisation;
-            $realisation->setUser($this);
-        }
-
-        return $this;
-    }
-
-    public function removeRealisation(Realisation $realisation): self
-    {
-        if ($this->realisations->contains($realisation)) {
-            $this->realisations->removeElement($realisation);
-            // set the owning side to null (unless already changed)
-            if ($realisation->getUser() === $this) {
-                $realisation->setUser(null);
-            }
-        }
-
-        return $this;
-    }
-
-    /**
-     * @return Collection|Experience[]
-     */
-    public function getExperiences(): Collection
-    {
-        return $this->experiences;
-    }
-
-    public function addExperience(Experience $experience): self
-    {
-        if (!$this->experiences->contains($experience)) {
-            $this->experiences[] = $experience;
-            $experience->setUser($this);
-        }
-
-        return $this;
-    }
-
-    public function removeExperience(Experience $experience): self
-    {
-        if ($this->experiences->contains($experience)) {
-            $this->experiences->removeElement($experience);
-            // set the owning side to null (unless already changed)
-            if ($experience->getUser() === $this) {
-                $experience->setUser(null);
-            }
+        // set (or unset) the owning side of the relation if necessary
+        $newUser = $resume === null ? null : $this;
+        if ($newUser !== $resume->getUser()) {
+            $resume->setUser($newUser);
         }
 
         return $this;

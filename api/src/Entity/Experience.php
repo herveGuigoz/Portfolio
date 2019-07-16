@@ -44,10 +44,9 @@ class Experience
     private $technos;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="experiences")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\ManyToOne(targetEntity="App\Entity\Resume", inversedBy="experiences")
      */
-    private $user;
+    private $resume;
 
     public function getId(): ?int
     {
@@ -114,14 +113,14 @@ class Experience
         return $this;
     }
 
-    public function getUser(): ?User
+    public function getResume(): ?Resume
     {
-        return $this->user;
+        return $this->resume;
     }
 
-    public function setUser(?User $user): self
+    public function setResume(?Resume $resume): self
     {
-        $this->user = $user;
+        $this->resume = $resume;
 
         return $this;
     }
