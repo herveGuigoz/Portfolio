@@ -24,6 +24,7 @@ export default {
   */
   css: [
     '~/assets/css/tailwind.css',
+    '~/assets/css/grid.css',
     '~/assets/fonts/fonts.css'
   ],
   /*

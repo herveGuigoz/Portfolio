@@ -10,8 +10,6 @@ use ApiPlatform\Core\Annotation\ApiResource;
 
 /**
  * @ApiResource(
- *     collectionOperations={"post"},
- *     itemOperations={}
  * )
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
  */
@@ -56,12 +54,12 @@ class User implements UserInterface
     private $description;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $situation;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $accroche;
 
