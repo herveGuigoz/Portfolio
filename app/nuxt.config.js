@@ -51,5 +51,9 @@ export default {
     */
     extend(config, ctx) {
     }
+  },
+  transition: {
+    name: 'fade',
+    mode: 'out-in'
   }
 }

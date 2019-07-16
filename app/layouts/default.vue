@@ -1,11 +1,11 @@
 <template>
-  <div>
+  <div class="default">
     <nuxt />
   </div>
 </template>
 
 <style>
-html {
+.default {
   font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI',
     Roboto, 'Helvetica Neue', Arial, sans-serif;
   font-size: 16px;
@@ -15,8 +15,6 @@ html {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   box-sizing: border-box;
-}
-html, body {
   background: linear-gradient(315deg, rgba(255,255,255,0.5) 0%, rgba(255,255,255,0) 100%), linear-gradient(315deg, #3eba9b 0%, #16c79e 100%);
 }
 

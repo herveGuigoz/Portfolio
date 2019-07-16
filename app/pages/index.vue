@@ -32,7 +32,6 @@ import Modal from '@/components/Modal'
 import Contact from "@/components/Contact";
 
 export default {
-  name: 'app',
   components: {
     Contact,
     Name,
