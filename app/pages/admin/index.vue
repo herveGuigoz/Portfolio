@@ -16,6 +16,10 @@
             <Textarea id="description" label="Description"/>
         </div>
 
+        <div class="w-full p-3">
+            <Input value="Soft Skills"/>
+        </div>
+
         <div class="flex px-3">
             <div>
                 <p class="block text-gray-700 text-sm font-bold mb-2">Experiences :</p>
@@ -25,16 +29,22 @@
                 dssfsd
             </div>
         </div>
+
+        <div class="w-full px-3 pt-6">
+            <Button @click="save" value="Save"/>
+        </div>
     </div>
 </template>
 <script>
+    import Input from '@/components/UI/Input'
     import Textarea from '@/components/UI/Textarea'
     import Button from '@/components/UI/Button'
     export default {
         layout: 'admin',
         components: {
             Textarea,
-            Button
+            Button,
+            Input
         }
     }
 </script>

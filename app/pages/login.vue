@@ -3,10 +3,18 @@
         <div class="col-1-1 h-screen flex justify-center items-center">
             <div class="w-full max-w-xs">
                 <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
-                    <Input value="Email"/>
-                    <Input value="Password"/>
+                    <Input  @content="setEmail"
+                            value="Email"/>
+                    <div class="mb-4">
+                        <label class="block text-gray-700 text-sm font-bold mb-2" for="password">
+                            Password
+                        </label>
+                        <input  v-model="userInput.password"
+                                class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" id="password" type="password" placeholder="******************">
+                        <p v-if="error" class="text-red-500 text-xs italic">{{ error }}</p>
+                    </div>
                     <div class="flex items-center justify-between">
-                        <Button value="Sign In"/>
+                        <Button @click="postLogin" value="Sign In"/>
                         <a class="inline-block align-baseline font-bold text-sm text-teal-500 hover:text-teal-800" href="#">
                             <nuxt-link to="/signin">Create an account</nuxt-link>
                         </a>
@@ -29,13 +37,20 @@
             Button
         },
         methods: {
+            setEmail (e) {
+                this.userInput.email = e
+            },
             postLogin () {
-                console.log('logged')
+                console.log(this.userInput)
             }
         },
         data() {
             return {
-                error: ""
+                error: "",
+                userInput: {
+                    email: '',
+                    password: ""
+                }
             }
         }
     }

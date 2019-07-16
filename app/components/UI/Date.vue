@@ -4,7 +4,7 @@
 
         <input type="date" :id="id" :name="id"
                value="2018-07-22"
-               min="2018-01-01" max="2018-12-31">
+               min="1970-01-01" max="2018-12-31">
     </div>
 </template>
 <script>
@@ -22,7 +22,7 @@ export default {
     },
     data() {
         return {
-            now: new Date()
+            now: ""
         }
     }
 }

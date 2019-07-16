@@ -4,10 +4,12 @@ namespace App\Entity;
 
 use ApiPlatform\Core\Annotation\ApiResource;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ApiResource()
  * @ORM\Entity(repositoryClass="App\Repository\ExperienceRepository")
+ *
  */
 class Experience
 {
@@ -20,26 +22,31 @@ class Experience
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank
+     * @Assert\Length(
+     *      max = 255,
+     *      maxMessage = "Max 255 characters"
+     * )
      */
     private $titre;
 
     /**
-     * @ORM\Column(type="datetime")
-     */
-    private $startedAt;
-
-    /**
-     * @ORM\Column(type="datetime", nullable=true)
-     */
-    private $endedAt;
-
-    /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank
+     * @Assert\Length(
+     *      max = 255,
+     *      maxMessage = "Max 255 characters"
+     * )
      */
     private $description;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank
+     * @Assert\Length(
+     *      max = 255,
+     *      maxMessage = "Max 255 characters"
+     * )
      */
     private $technos;
 
@@ -47,6 +54,13 @@ class Experience
      * @ORM\ManyToOne(targetEntity="App\Entity\Resume", inversedBy="experiences")
      */
     private $resume;
+
+    /**
+     * @ORM\Column(type="integer")
+     * @Assert\Positive
+     * @Assert\NotBlank
+     */
+    private $year;
 
     public function getId(): ?int
     {
@@ -61,30 +75,6 @@ class Experience
     public function setTitre(string $titre): self
     {
         $this->titre = $titre;
-
-        return $this;
-    }
-
-    public function getStartedAt(): ?\DateTimeInterface
-    {
-        return $this->startedAt;
-    }
-
-    public function setStartedAt(\DateTimeInterface $startedAt): self
-    {
-        $this->startedAt = $startedAt;
-
-        return $this;
-    }
-
-    public function getEndedAt(): ?\DateTimeInterface
-    {
-        return $this->endedAt;
-    }
-
-    public function setEndedAt(?\DateTimeInterface $endedAt): self
-    {
-        $this->endedAt = $endedAt;
 
         return $this;
     }
@@ -121,6 +111,18 @@ class Experience
     public function setResume(?Resume $resume): self
     {
         $this->resume = $resume;
+
+        return $this;
+    }
+
+    public function getYear(): ?int
+    {
+        return $this->year;
+    }
+
+    public function setYear(int $year): self
+    {
+        $this->year = $year;
 
         return $this;
     }
