@@ -61,6 +61,7 @@ class User implements UserInterface
 
     /**
      * @ORM\OneToOne(targetEntity="App\Entity\Resume", inversedBy="user", cascade={"persist", "remove"})
+     * @Groups({"user:read"})
      */
     private $resume;
 
