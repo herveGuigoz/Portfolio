@@ -5,9 +5,9 @@
                 Logout
             </button>
         </div>
-        <Experience v-bind:res="resume.user"
+        <Experience v-bind:res="resume"
                     v-if="experienceIsOpen"
-                    @cancel="close"/>
+                    @hide-xp="close"/>
         <!-- TODO if resume Edit your resume-->
         <div v-if="!experienceIsOpen">
             <p class="px-3">Create your resume</p>
@@ -48,20 +48,22 @@
                               class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                               id="description"
                               rows="4">
-                        </textarea>
+                    </textarea>
                 </div>
             </div>
 
             <div class="w-full p-3">
                 <div class="mb-4">
-                    <label class="block text-gray-700 text-sm font-bold mb-2" for="sf">
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="softskills">
                         Soft Skills (separated by commas)
                     </label>
-                    <input  v-model="resume.softSkills"
-                            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="sf" type="text" placeholder="Soft Skills">
+                    <textarea v-model="resume.softSkills"
+                              class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                              id="softskills"
+                              rows="4">
+                    </textarea>
                 </div>
             </div>
-
             <div class="flex px-3">
                 <div>
                     <p class="block text-gray-700 text-sm font-bold mb-2">Experiences :</p>
@@ -71,13 +73,19 @@
                     </button>
                 </div>
                 <div class="flex-1 px-6 uppercase text-gray-700">
-                    dssfsd
+                    <div v-for="(exp, index) in resume.experiences" :key="index">
+                        {{ exp.titre }} - {{ exp.year}}
+                    </div>
+                    <div v-for="(xp, index) in newXp" :key="index">
+                        {{ xp.titre }} - {{ xp.year}}
+                    </div>
                 </div>
             </div>
 
             <div class="w-full px-3 pt-6">
-                <button class="bg-teal-500 hover:bg-teal-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">
-                    test
+                <button @click="put"
+                        class="bg-teal-500 hover:bg-teal-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">
+                    Save
                 </button>
             </div>
         </div>
@@ -105,6 +113,7 @@
             return {
                 experienceIsOpen : false,
                 error: null,
+                newXp : []
             }
         },
         async asyncData ({ store, params, error }) {
@@ -115,8 +124,6 @@
                 };
                 const { data } = await axios.get("http://127.0.0.1:8000/api/resumes?user.id=" + params.id,
                 config)
-                // TODO/ Virer ce console.log
-                console.log(data['hydra:member'])
                 return { resume: data['hydra:member'][0] }
             } catch (e) {
                 console.log(e)
@@ -124,7 +131,8 @@
             }
         },
         methods: {
-            close() {
+            close(xp) {
+                this.newXp.push(xp)
                 this.experienceIsOpen = false
             },
             logout () {
@@ -143,7 +151,26 @@
                 } catch(e) {
                     console.log(e)
                 }
-            }
+            },
+            async put() {
+                const data= {
+                    description: this.resume.description,
+                    situation: this.resume.situation,
+                    accroche: this.resume.accroche,
+                    softSkills: this.resume.softSkills
+                }
+                const iri = this.resume['@id']
+                const token = this.$store.getters.getToken
+                try {
+                    const config = {
+                        headers: {'Authorization': "Bearer " + token}
+                    };
+                    await axios.put("http://localhost:8000/api/resumes/" + iri.slice(-1), data, config)
+                    console.log('cool')
+                } catch(e) {
+                    console.log(e)
+                }
+            },
         }
     }
 </script>

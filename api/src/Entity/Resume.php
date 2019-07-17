@@ -72,6 +72,11 @@ class Resume
      */
     private $softSkills;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $techno;
+
     public function __construct()
     {
         $this->realisations = new ArrayCollection();
@@ -208,6 +213,18 @@ class Resume
     public function setSoftSkills(?string $softSkills): self
     {
         $this->softSkills = $softSkills;
+
+        return $this;
+    }
+
+    public function getTechno(): ?string
+    {
+        return $this->techno;
+    }
+
+    public function setTechno(?string $techno): self
+    {
+        $this->techno = $techno;
 
         return $this;
     }

@@ -16,7 +16,7 @@
                     <label class="block text-gray-700 text-sm font-bold mb-2" for="year">
                         Year
                     </label>
-                    <input  v-model="exp.year"
+                    <input  v-model.number="exp.year"
                             class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="year" type="number" placeholder="year">
                 </div>
             </div>
@@ -64,7 +64,7 @@
     </div>
 </template>
 <script>
-    import moment from 'moment'
+    import axios from 'axios'
     import Input from '@/components/UI/Input'
     import Textarea from '@/components/UI/Textarea'
     import Button from '@/components/UI/Button'
@@ -87,8 +87,18 @@
             }
         },
         methods: {
-            save() {
-                console.log(this.res['@id'])
+            async save() {
+                this.exp.resume = this.res['@id']
+                const token = this.$store.getters.getToken
+                try {
+                    const config = {
+                        headers: {'Authorization': "Bearer " + token}
+                    };
+                    await axios.post("http://127.0.0.1:8000/api/experiences", this.exp, config)
+                    this.$emit('hide-xp', this.exp)
+                } catch(e) {
+                    console.log(e)
+                }
             },
             cancel () {
                 this.$emit()

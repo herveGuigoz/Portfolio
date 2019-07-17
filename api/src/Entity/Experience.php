@@ -5,10 +5,11 @@ namespace App\Entity;
 use Symfony\Component\Serializer\Annotation\Groups;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
+use ApiPlatform\Core\Annotation\ApiResource;
 
 /**
+ * @ApiResource()
  * @ORM\Entity(repositoryClass="App\Repository\ExperienceRepository")
- *
  */
 class Experience
 {
@@ -61,6 +62,22 @@ class Experience
      * @ORM\ManyToOne(targetEntity="App\Entity\Resume", inversedBy="experiences")
      */
     private $resume;
+
+    /**
+     * @return mixed
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * @param mixed $id
+     */
+    public function setId($id): void
+    {
+        $this->id = $id;
+    }
 
     public function getTitre(): ?string
     {
