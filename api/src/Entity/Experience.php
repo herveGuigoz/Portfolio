@@ -2,7 +2,7 @@
 
 namespace App\Entity;
 
-use ApiPlatform\Core\Annotation\ApiResource;
+use Symfony\Component\Serializer\Annotation\Groups;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 
@@ -26,12 +26,14 @@ class Experience
      *      max = 255,
      *      maxMessage = "Max 255 characters"
      * )
+     * @Groups({"resume:read"})
      */
     private $titre;
 
     /**
      * @ORM\Column(type="text")
      * @Assert\NotBlank
+     * @Groups({"resume:read"})
      */
     private $description;
 
@@ -42,6 +44,7 @@ class Experience
      *      max = 255,
      *      maxMessage = "Max 255 characters"
      * )
+     * @Groups({"resume:read"})
      */
     private $technos;
 
@@ -50,18 +53,14 @@ class Experience
      * @ORM\Column(type="integer")
      * @Assert\Positive
      * @Assert\NotBlank
+     * @Groups({"resume:read"})
      */
     private $year;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="experiences")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Resume", inversedBy="experiences")
      */
-    private $user;
-
-    public function getId(): ?int
-    {
-        return $this->id;
-    }
+    private $resume;
 
     public function getTitre(): ?string
     {
@@ -111,15 +110,16 @@ class Experience
         return $this;
     }
 
-    public function getUser(): ?User
+    public function getResume(): ?Resume
     {
-        return $this->user;
+        return $this->resume;
     }
 
-    public function setUser(?User $user): self
+    public function setResume(?Resume $resume): self
     {
-        $this->user = $user;
+        $this->resume = $resume;
 
         return $this;
     }
+
 }

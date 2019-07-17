@@ -3,18 +3,48 @@
         <p class="px-3">Create new experience</p>
         <div class="flex pt-3">
             <div class="w-1/2 p-3">
-                <Input value="title"/>
+                <div class="mb-4">
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="titre">
+                        Titre
+                    </label>
+                    <input  v-model="exp.titre"
+                            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="titre" type="text" placeholder="titre">
+                </div>
             </div>
             <div class="w-1/5 p-3">
-                <Input value="Year"/>
+                <div class="mb-4">
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="year">
+                        Year
+                    </label>
+                    <input  v-model="exp.year"
+                            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="year" type="number" placeholder="year">
+                </div>
             </div>
         </div>
         <div class="w-full p-3">
-            <Textarea id="techno" label="Technos (separated by commas)"/>
+            <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="techo">
+                    Technos
+                </label>
+                <textarea   v-model="exp.technos"
+                            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                            id="techno"
+                            rows="4">
+                </textarea>
+            </div>
         </div>
 
         <div class="w-full p-3">
-            <Textarea id="description" label="Description"/>
+            <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="description">
+                    Description
+                </label>
+                <textarea   v-model="exp.description"
+                            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                            id="description"
+                            rows="4">
+        </textarea>
+            </div>
         </div>
 
         <div class="flex px-3">
@@ -25,7 +55,7 @@
                 </button>
             </div>
             <div class="px-3">
-                <button
+                <button @click="save"
                         class="bg-white hover:bg-gray-100 text-teal-500 font-semibold py-2 px-4 border border-gray-400 rounded shadow">
                     Save
                 </button>
@@ -45,12 +75,23 @@
             Textarea,
             Button
         },
+        props: ['res'],
+        data() {
+            return {
+                exp : {
+                    titre : '',
+                    description : '',
+                    technos : '',
+                    year: null,
+                }
+            }
+        },
         methods: {
             save() {
-                console.log(moment('12-25-1995', 'MM-DD-YYYY').format('MMMM'))
+                console.log(this.res['@id'])
             },
             cancel () {
-                this.$emit('cancel')
+                this.$emit()
             }
         },
     }

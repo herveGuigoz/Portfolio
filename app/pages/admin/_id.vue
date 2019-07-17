@@ -5,27 +5,61 @@
                 Logout
             </button>
         </div>
-        <Experience v-if="experienceIsOpen"
+        <Experience v-bind:res="resume.user"
+                    v-if="experienceIsOpen"
                     @cancel="close"/>
         <!-- TODO if resume Edit your resume-->
         <div v-if="!experienceIsOpen">
             <p class="px-3">Create your resume</p>
             <div class="flex pt-3">
                 <div class="w-1/2 p-3">
-                    <Textarea id="accroche" label="Accroche"/>
+                    <div class="mb-4">
+                        <label class="block text-gray-700 text-sm font-bold mb-2" for="accroche">
+                            Accroche
+                        </label>
+                        <textarea v-model="resume.accroche"
+                                class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                id="accroche"
+                                rows="4">
+                        </textarea>
+                    </div>
                 </div>
 
                 <div class="w-1/2 p-3">
-                    <Textarea id="situation" label="Situation"/>
+                    <div class="mb-4">
+                        <label class="block text-gray-700 text-sm font-bold mb-2" for="situation">
+                            Situation
+                        </label>
+                        <textarea v-model="resume.situation"
+                                  class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                  id="situation"
+                                  rows="4">
+                        </textarea>
+                    </div>
                 </div>
             </div>
 
             <div class="w-full p-3">
-                <Textarea id="description" label="Description"/>
+                <div class="mb-4">
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="description">
+                        Description
+                    </label>
+                    <textarea v-model="resume.description"
+                              class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                              id="description"
+                              rows="4">
+                        </textarea>
+                </div>
             </div>
 
             <div class="w-full p-3">
-                <Input value="Soft Skills"/>
+                <div class="mb-4">
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="sf">
+                        Soft Skills (separated by commas)
+                    </label>
+                    <input  v-model="resume.softSkills"
+                            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="sf" type="text" placeholder="Soft Skills">
+                </div>
             </div>
 
             <div class="flex px-3">
@@ -45,7 +79,6 @@
                 <button class="bg-teal-500 hover:bg-teal-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">
                     test
                 </button>
-                {{ user.id }}
             </div>
         </div>
     </div>
@@ -72,12 +105,6 @@
             return {
                 experienceIsOpen : false,
                 error: null,
-                exp : {
-                    titre : '',
-                    description : '',
-                    technos : '',
-                    year: '',
-                }
             }
         },
         async asyncData ({ store, params, error }) {
@@ -86,14 +113,14 @@
                 const config = {
                     headers: {'Authorization': "Bearer " + token}
                 };
-                const { data } = await axios.get("http://127.0.0.1:8000/api/users/" + params.id,
+                const { data } = await axios.get("http://127.0.0.1:8000/api/resumes?user.id=" + params.id,
                 config)
                 // TODO/ Virer ce console.log
-                console.log(data)
-                return { user: data }
+                console.log(data['hydra:member'])
+                return { resume: data['hydra:member'][0] }
             } catch (e) {
                 console.log(e)
-                //error({ message: 'User not found', statusCode: 404 })
+                //error({ message: 'Page not found', statusCode: 404 })
             }
         },
         methods: {

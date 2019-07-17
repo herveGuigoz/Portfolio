@@ -54,29 +54,10 @@ class User implements UserInterface
     private $lastname;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Experience", mappedBy="user")
-     * @Groups({"resume:read", "user:read"})
-     */
-    private $experiences;
-
-    /**
      * @ORM\OneToOne(targetEntity="App\Entity\Resume", inversedBy="user", cascade={"persist", "remove"})
      * @Groups({"user:read"})
      */
     private $resume;
-
-    /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Realisation", mappedBy="user")
-     * @Groups({"resume:read"})
-     */
-    private $realisations;
-
-
-    public function __construct()
-    {
-        $this->experiences = new ArrayCollection();
-        $this->realisations = new ArrayCollection();
-    }
 
     public function getId(): ?int
     {
@@ -180,37 +161,6 @@ class User implements UserInterface
         return $this;
     }
 
-    /**
-     * @return Collection|Experience[]
-     */
-    public function getExperiences(): Collection
-    {
-        return $this->experiences;
-    }
-
-    public function addExperience(Experience $experience): self
-    {
-        if (!$this->experiences->contains($experience)) {
-            $this->experiences[] = $experience;
-            $experience->setUser($this);
-        }
-
-        return $this;
-    }
-
-    public function removeExperience(Experience $experience): self
-    {
-        if ($this->experiences->contains($experience)) {
-            $this->experiences->removeElement($experience);
-            // set the owning side to null (unless already changed)
-            if ($experience->getUser() === $this) {
-                $experience->setUser(null);
-            }
-        }
-
-        return $this;
-    }
-
     public function getResume(): ?Resume
     {
         return $this->resume;
@@ -219,37 +169,6 @@ class User implements UserInterface
     public function setResume(?Resume $resume): self
     {
         $this->resume = $resume;
-
-        return $this;
-    }
-
-    /**
-     * @return Collection|Realisation[]
-     */
-    public function getRealisations(): Collection
-    {
-        return $this->realisations;
-    }
-
-    public function addRealisation(Realisation $realisation): self
-    {
-        if (!$this->realisations->contains($realisation)) {
-            $this->realisations[] = $realisation;
-            $realisation->setUser($this);
-        }
-
-        return $this;
-    }
-
-    public function removeRealisation(Realisation $realisation): self
-    {
-        if ($this->realisations->contains($realisation)) {
-            $this->realisations->removeElement($realisation);
-            // set the owning side to null (unless already changed)
-            if ($realisation->getUser() === $this) {
-                $realisation->setUser(null);
-            }
-        }
 
         return $this;
     }

@@ -2,11 +2,11 @@
 
 namespace App\Entity;
 
-use ApiPlatform\Core\Annotation\ApiResource;
+
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
- * @ApiResource()
  * @ORM\Entity(repositoryClass="App\Repository\RealisationRepository")
  */
 class Realisation
@@ -39,10 +39,9 @@ class Realisation
     private $technos;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="realisations")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Resume", inversedBy="realisations")
      */
-    private $user;
-
+    private $resume;
 
     public function getId(): ?int
     {
@@ -97,14 +96,14 @@ class Realisation
         return $this;
     }
 
-    public function getUser(): ?User
+    public function getResume(): ?Resume
     {
-        return $this->user;
+        return $this->resume;
     }
 
-    public function setUser(?User $user): self
+    public function setResume(?Resume $resume): self
     {
-        $this->user = $user;
+        $this->resume = $resume;
 
         return $this;
     }

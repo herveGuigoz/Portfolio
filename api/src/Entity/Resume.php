@@ -50,9 +50,33 @@ class Resume
 
     /**
      * @ORM\OneToOne(targetEntity="App\Entity\User", mappedBy="resume", cascade={"persist", "remove"})
-     * @Groups({"resume:read", "resume:write"})
+     * @Groups({"resume:read"})
      */
     private $user;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Realisation", mappedBy="resume")
+     * @Groups({"resume:read"})
+     */
+    private $realisations;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Experience", mappedBy="resume")
+     * @Groups({"resume:read", "resume:write"})
+     */
+    private $experiences;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     * @Groups({"resume:read", "resume:write"})
+     */
+    private $softSkills;
+
+    public function __construct()
+    {
+        $this->realisations = new ArrayCollection();
+        $this->experiences = new ArrayCollection();
+    }
 
 
     public function getId(): ?int
@@ -110,6 +134,80 @@ class Resume
         if ($newResume !== $user->getResume()) {
             $user->setResume($newResume);
         }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Realisation[]
+     */
+    public function getRealisations(): Collection
+    {
+        return $this->realisations;
+    }
+
+    public function addRealisation(Realisation $realisation): self
+    {
+        if (!$this->realisations->contains($realisation)) {
+            $this->realisations[] = $realisation;
+            $realisation->setResume($this);
+        }
+
+        return $this;
+    }
+
+    public function removeRealisation(Realisation $realisation): self
+    {
+        if ($this->realisations->contains($realisation)) {
+            $this->realisations->removeElement($realisation);
+            // set the owning side to null (unless already changed)
+            if ($realisation->getResume() === $this) {
+                $realisation->setResume(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Experience[]
+     */
+    public function getExperiences(): Collection
+    {
+        return $this->experiences;
+    }
+
+    public function addExperience(Experience $experience): self
+    {
+        if (!$this->experiences->contains($experience)) {
+            $this->experiences[] = $experience;
+            $experience->setResume($this);
+        }
+
+        return $this;
+    }
+
+    public function removeExperience(Experience $experience): self
+    {
+        if ($this->experiences->contains($experience)) {
+            $this->experiences->removeElement($experience);
+            // set the owning side to null (unless already changed)
+            if ($experience->getResume() === $this) {
+                $experience->setResume(null);
+            }
+        }
+
+        return $this;
+    }
+
+    public function getSoftSkills(): ?string
+    {
+        return $this->softSkills;
+    }
+
+    public function setSoftSkills(?string $softSkills): self
+    {
+        $this->softSkills = $softSkills;
 
         return $this;
     }
