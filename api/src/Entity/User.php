@@ -78,15 +78,6 @@ class User implements UserInterface
         $this->realisations = new ArrayCollection();
     }
 
-    /**
-     * Pour savoir si un user a deja un resume ou non
-     * @return bool
-     * @Groups({"user:read", "resume:read"})
-     */
-    public function isActive() {
-        return $this->resume ? true : false;
-    }
-
     public function getId(): ?int
     {
         return $this->id;

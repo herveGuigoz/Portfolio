@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7dbb763e-08a5-4964-9c8d-76106bab7da6" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/api/src/Events/NewResumeSubscriber.php" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/app/components/UI/Button.vue" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/app/components/UI/Date.vue" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/app/components/UI/Input.vue" afterDir="false" />
@@ -14,8 +13,6 @@
       <change afterPath="$PROJECT_DIR$/app/pages/login.vue" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/app/pages/signin.vue" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/app/store/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/src/Entity/Resume.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/Entity/Resume.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/Entity/User.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -41,37 +38,13 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/api/src/Entity/Experience.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="189">
-              <caret line="9" selection-start-line="9" selection-end-line="9" />
-              <folding>
-                <element signature="e#30#74#0#PHP" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/api/src/Entity/User.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="178">
-              <caret line="63" column="7" lean-forward="true" selection-start-line="63" selection-start-column="7" selection-end-line="63" selection-end-column="29" />
+            <state relative-caret-position="93">
+              <caret line="79" column="4" selection-start-line="79" selection-start-column="4" selection-end-line="79" selection-end-column="4" />
               <folding>
                 <element signature="e#30#78#0#PHP" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/api/src/Entity/Resume.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="82">
-              <caret line="28" column="29" selection-start-line="28" selection-start-column="29" selection-end-line="28" selection-end-column="29" />
-              <folding>
-                <element signature="e#30#74#0#PHP" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -90,22 +63,13 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/api/src/Events/PasswordEncoderSubscriber.php">
+        <entry file="file://$PROJECT_DIR$/api/src/Entity/Resume.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="420">
-              <caret line="20" selection-end-line="40" selection-end-column="1" />
+            <state relative-caret-position="82">
+              <caret line="28" column="29" selection-start-line="28" selection-start-column="29" selection-end-line="28" selection-end-column="29" />
               <folding>
-                <element signature="e#30#81#0#PHP" expanded="true" />
+                <element signature="e#30#74#0#PHP" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/api/src/Events/NewResumeSubscriber.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-99">
-              <caret line="6" column="20" selection-start-line="6" selection-start-column="20" selection-end-line="6" selection-end-column="20" />
             </state>
           </provider>
         </entry>
@@ -164,8 +128,8 @@
         <option value="$PROJECT_DIR$/app/middleware/notAuthenticated.js" />
         <option value="$PROJECT_DIR$/app/pages/admin/_id.vue" />
         <option value="$PROJECT_DIR$/api/src/Events/NewResumeSubscriber.php" />
-        <option value="$PROJECT_DIR$/api/src/Entity/User.php" />
         <option value="$PROJECT_DIR$/api/src/Entity/Resume.php" />
+        <option value="$PROJECT_DIR$/api/src/Entity/User.php" />
       </list>
     </option>
   </component>
@@ -371,12 +335,12 @@
       <updated>1563283598335</updated>
       <workItem from="1563283604713" duration="29913000" />
       <workItem from="1563328922619" duration="1709000" />
-      <workItem from="1563347313149" duration="10912000" />
+      <workItem from="1563347313149" duration="11087000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="42534000" />
+    <option name="totallyTimeSpent" value="42709000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="729" extended-state="0" />
@@ -596,16 +560,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/api/src/Entity/Experience.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="9" selection-start-line="9" selection-end-line="9" />
-          <folding>
-            <element signature="e#30#74#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/store/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="490">
@@ -634,23 +588,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/pages/login.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="389">
-          <caret line="64" column="41" selection-start-line="64" selection-start-column="41" selection-end-line="64" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/pages/admin/_id.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1638">
-          <caret line="78" column="29" selection-start-line="78" selection-start-column="29" selection-end-line="78" selection-end-column="29" />
-          <folding>
-            <element signature="e#1447#1472#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/api/src/Events/PasswordEncoderSubscriber.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="420">
@@ -668,13 +605,30 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/api/src/Entity/User.php">
+    <entry file="file://$PROJECT_DIR$/api/src/Entity/Experience.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="178">
-          <caret line="63" column="7" lean-forward="true" selection-start-line="63" selection-start-column="7" selection-end-line="63" selection-end-column="29" />
+        <state relative-caret-position="189">
+          <caret line="9" selection-start-line="9" selection-end-line="9" />
           <folding>
-            <element signature="e#30#78#0#PHP" expanded="true" />
+            <element signature="e#30#74#0#PHP" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/pages/admin/_id.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1638">
+          <caret line="78" column="29" selection-start-line="78" selection-start-column="29" selection-end-line="78" selection-end-column="29" />
+          <folding>
+            <element signature="e#1447#1472#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/pages/login.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="389">
+          <caret line="64" column="41" selection-start-line="64" selection-start-column="41" selection-end-line="64" selection-end-column="41" />
         </state>
       </provider>
     </entry>
@@ -684,6 +638,16 @@
           <caret line="28" column="29" selection-start-line="28" selection-start-column="29" selection-end-line="28" selection-end-column="29" />
           <folding>
             <element signature="e#30#74#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/src/Entity/User.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="93">
+          <caret line="79" column="4" selection-start-line="79" selection-start-column="4" selection-end-line="79" selection-end-column="4" />
+          <folding>
+            <element signature="e#30#78#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
