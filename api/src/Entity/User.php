@@ -59,6 +59,14 @@ class User implements UserInterface
      */
     private $resume;
 
+    /**
+     * @return string
+     * @Groups({"resume:read", "user:read"})
+     */
+    public function getAlias() {
+        return strtolower($this->getFirstname()) . "-" . strtolower($this->getLastname());
+    }
+
     public function getId(): ?int
     {
         return $this->id;

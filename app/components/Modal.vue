@@ -12,10 +12,10 @@
         class="content"
         @click.stop
       >
-        <h1>A l'écoute pour un poste de développeur PHP.</h1>
+        <h1>{{ resume.situation }}</h1>
 
         <p>
-          Impliqué et curieux, j'aime découvrir de nouvelles technologies et j'ai le goût du travail bien fait !
+          {{ resume.accroche }}
         </p>
 
         <div class="flex-row">
@@ -24,12 +24,12 @@
 
             <div class="title">experiences</div>
             <div class="bordered"></div>
-            <div class="col" v-for="experience in experiences" :key="experience">
+            <div class="col" v-for="(experience, index) in resume.experiences" :key="index">
               <div class="experiences titre pt1">
                 {{ experience.titre }}
               </div>
               <div class="experiences">
-                {{ experience.mission }}
+                {{ experience.description }}
               </div>
             </div>
           </div>
@@ -62,12 +62,21 @@
 <script>
 export default {
   name:'modal',
+  data(){
+    return {
+      technos: null,
+      softSkills: null
+    }
+  },
   props: {
     showContent: Boolean,
-    experiences : Array,
-    competences : String,
-    technos: Array,
-    softskills: Array
+    resume: Object
+  },
+  computed: {
+    toArray(){
+      this.technos = this.resume.techno.split(',')
+      this.softSkills = this.resume.softSkills.split(',')
+    }
   }
 }
 </script>

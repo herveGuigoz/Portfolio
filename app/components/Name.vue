@@ -2,14 +2,20 @@
   <div id="name">
     <div class="flex-row">
         <span class="dot" style="transform: matrix(1, 0, 0, 1, 0, 0);"></span>
-        <h1 class="firstname">Herve</h1>
+        <h1 class="firstname">{{ user.firstname }}</h1>
       </div>
-      <h1 class="lastname">Guigoz</h1>
+      <h1 class="lastname">{{ user.lastname }}</h1>
   </div>
 </template>
 <script>
 export default {
-  name: 'Name'
+  name: 'Name',
+    props: {
+      user: {
+          type: Object,
+          required: true
+      }
+    }
 }
 </script>
 <style scoped>

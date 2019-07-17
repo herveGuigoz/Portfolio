@@ -1,7 +1,7 @@
 <template>
   <div id="main-content">
     <div class="me">
-      <p>Les formations que j'ai suivies, mes différents stages, mon expérience professionnelle et tous les travaux et projets auxquels j'ai participé m'ont permis d'acquérir de nombreuses compétences dans le domaine du developpement web.</p>
+      <p>{{ resume.description }}</p>
     </div>
   </div>
 </template>
@@ -9,6 +9,12 @@
 <script>
 export default {
   name: 'MainContent',
+  props: {
+    resume: {
+      type: Object,
+      required: true
+    }
+  }
 }
 </script>
 

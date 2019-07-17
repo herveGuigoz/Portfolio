@@ -16,7 +16,8 @@ use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\SearchFilter;
  *     denormalizationContext={"groups"={"resume:write"}}
  * )
  * @ApiFilter(SearchFilter::class, properties={
- *     "user.id": "exact"
+ *     "user.id": "exact",
+ *     "user.alias": "exact"
  * })
  * @ORM\Entity(repositoryClass="App\Repository\ResumeRepository")
  */
