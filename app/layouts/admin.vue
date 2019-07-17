@@ -8,7 +8,11 @@
         </div>
     </div>
 </template>
-
+<script>
+    export default {
+        middleware: 'authenticated',
+    }
+</script>
 <style>
     .admin {
         font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI',

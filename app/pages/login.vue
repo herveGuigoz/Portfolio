@@ -26,6 +26,7 @@
 </template>
 
 <script>
+    import moment from 'moment'
     const Cookie = process.client ? require('js-cookie') : undefined
     import Input from '@/components/UI/Input'
     import Button from '@/components/UI/Button'
@@ -38,17 +39,39 @@
         },
         methods: {
             setEmail (e) {
-                this.userInput.email = e
+                this.userInput.username = e
             },
-            postLogin () {
-                console.log(this.userInput)
-            }
+            async postLogin() {
+                try {
+                    const response = await fetch(
+                        "http://127.0.0.1:8000/api/login_check",
+                        {
+                            method: "POST",
+                            body: JSON.stringify(this.userInput),
+                            headers: { "Content-type": "application/json; charset=UTF-8" }
+                        }
+                    );
+                    const data = await response.json();
+                    const playload = JSON.parse(atob(data.token.split('.')[1]));
+                    const auth = {
+                        token : data.token,
+                        id :playload.id
+                    };
+                    this.$store.commit('setAuth', auth)
+                    Cookie.set('auth', data.token)
+                    Cookie.set('id', id)
+// TODO: redirect to edit resume
+                    this.$router.push('/')
+                } catch (error) {
+                    console.error(error);
+                }
+            },
         },
         data() {
             return {
                 error: "",
                 userInput: {
-                    email: '',
+                    username: '',
                     password: ""
                 }
             }

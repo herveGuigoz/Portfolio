@@ -24,6 +24,8 @@
             <div class="px-3">
                 <Button @click="save" value="Add"/>
             </div>
+            <button @click="test" class="bg-teal-500 hover:bg-teal-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">test
+            </button>
         </div>
     </div>
 </template>
@@ -42,8 +44,11 @@
         methods: {
             save() {
                 console.log(moment('12-25-1995', 'MM-DD-YYYY').format('MMMM'))
+            },
+            test () {
+                return
             }
-        }
+        },
     }
 </script>
 <style>

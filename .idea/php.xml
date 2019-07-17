@@ -111,6 +111,9 @@
       <path value="$PROJECT_DIR$/api/vendor/symfony/debug-pack" />
       <path value="$PROJECT_DIR$/api/vendor/symfony/event-dispatcher" />
       <path value="$PROJECT_DIR$/api/vendor/symfony/flex" />
+      <path value="$PROJECT_DIR$/api/vendor/lcobucci/jwt" />
+      <path value="$PROJECT_DIR$/api/vendor/namshi/jose" />
+      <path value="$PROJECT_DIR$/api/vendor/lexik/jwt-authentication-bundle" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="7.1" />
