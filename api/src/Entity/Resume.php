@@ -74,6 +74,7 @@ class Resume
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     * @Groups({"resume:read", "resume:write"})
      */
     private $techno;
 

@@ -64,6 +64,19 @@
                     </textarea>
                 </div>
             </div>
+
+            <div class="w-full p-3">
+                <div class="mb-4">
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="technos">
+                        Technos (separated by commas)
+                    </label>
+                    <textarea v-model="resume.techno"
+                              class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                              id="technos"
+                              rows="4">
+                    </textarea>
+                </div>
+            </div>
             <div class="flex px-3">
                 <div>
                     <p class="block text-gray-700 text-sm font-bold mb-2">Experiences :</p>
@@ -157,7 +170,8 @@
                     description: this.resume.description,
                     situation: this.resume.situation,
                     accroche: this.resume.accroche,
-                    softSkills: this.resume.softSkills
+                    softSkills: this.resume.softSkills,
+                    techno: this.resume.techno
                 }
                 const iri = this.resume['@id']
                 const token = this.$store.getters.getToken
