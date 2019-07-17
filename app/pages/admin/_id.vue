@@ -168,8 +168,8 @@
                     };
                     await axios.put("http://localhost:8000/api/resumes/" + iri.slice(-1), data, config)
                     const alias = this.resume.user.firstname.toLowerCase() + '-' +this.resume.user.lastname.toLowerCase()
-                    console.log(this.resume.user['@id'])
-                    //this.$router.push('/' + alias)
+                    //console.log(this.resume.user['@id'])
+                    this.$router.push('/' + alias)
                 } catch(e) {
                     console.log(e)
                 }
