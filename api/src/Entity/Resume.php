@@ -17,7 +17,8 @@ use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\SearchFilter;
  * )
  * @ApiFilter(SearchFilter::class, properties={
  *     "user.id": "exact",
- *     "user.alias": "exact"
+ *     "user.alias": "exact",
+ *     "user": "exact"
  * })
  * @ORM\Entity(repositoryClass="App\Repository\ResumeRepository")
  */

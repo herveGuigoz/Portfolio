@@ -10,9 +10,11 @@
       <change afterPath="$PROJECT_DIR$/app/layouts/admin.vue" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/app/middleware/notAuthenticated.js" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/app/pages/_alias.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/pages/_id.vue" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/app/pages/admin/_id.vue" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/app/pages/signin.vue" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/app/store/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/Entity/Resume.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/Entity/Resume.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -38,10 +40,22 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/api/src/Entity/User.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="453">
+              <caret line="66" column="89" selection-start-line="66" selection-start-column="89" selection-end-line="66" selection-end-column="89" />
+              <folding>
+                <element signature="e#30#78#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/pages/_alias.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1344">
-              <caret line="64" selection-start-line="64" selection-end-line="64" />
+            <state relative-caret-position="266">
+              <caret line="38" column="24" selection-end-line="111" />
               <folding>
                 <element signature="e#722#747#0" expanded="true" />
               </folding>
@@ -50,10 +64,31 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/pages/_id.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="252">
+              <caret line="48" column="107" selection-start-line="48" selection-start-column="107" selection-end-line="48" selection-end-column="107" />
+              <folding>
+                <element signature="e#769#794#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/pages/admin/_id.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="215">
+              <caret line="136" column="16" lean-forward="true" selection-start-line="136" selection-start-column="16" selection-end-line="137" selection-end-column="23" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/api/src/Entity/Resume.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="483">
-              <caret line="23" column="6" selection-start-line="23" selection-start-column="6" selection-end-line="23" selection-end-column="6" />
+            <state relative-caret-position="210">
+              <caret line="10" column="61" selection-start-line="10" selection-start-column="61" selection-end-line="10" selection-end-column="61" />
               <folding>
                 <element signature="e#30#74#0#PHP" expanded="true" />
               </folding>
@@ -93,7 +128,7 @@
     </findStrings>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/app" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -131,7 +166,6 @@
         <option value="$PROJECT_DIR$/api/src/Entity/Experience.php" />
         <option value="$PROJECT_DIR$/app/components/admin/Experience.vue" />
         <option value="$PROJECT_DIR$/api/config/packages/security.yaml" />
-        <option value="$PROJECT_DIR$/api/src/Entity/Resume.php" />
         <option value="$PROJECT_DIR$/api/src/Entity/User.php" />
         <option value="$PROJECT_DIR$/app/components/Name.vue" />
         <option value="$PROJECT_DIR$/app/components/MainContent.vue" />
@@ -141,6 +175,8 @@
         <option value="$PROJECT_DIR$/app/components/Modal.vue" />
         <option value="$PROJECT_DIR$/app/pages/_alias.vue" />
         <option value="$PROJECT_DIR$/app/pages/admin/_id.vue" />
+        <option value="$PROJECT_DIR$/api/src/Entity/Resume.php" />
+        <option value="$PROJECT_DIR$/app/pages/_id.vue" />
       </list>
     </option>
   </component>
@@ -300,6 +336,24 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="Entity" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="Folio" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Folio" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Folio" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Folio" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Folio" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Folio" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -339,19 +393,19 @@
       <updated>1563283598335</updated>
       <workItem from="1563283604713" duration="29913000" />
       <workItem from="1563328922619" duration="1709000" />
-      <workItem from="1563347313149" duration="25154000" />
+      <workItem from="1563347313149" duration="25923000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="56776000" />
+    <option name="totallyTimeSpent" value="57545000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="729" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.24474959" />
+      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.16801292" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="0" />
       <window_info anchor="bottom" id="Database Changes" order="1" />
@@ -581,16 +635,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/api/src/Entity/User.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="376">
-          <caret line="66" column="89" selection-start-line="66" selection-start-column="89" selection-end-line="66" selection-end-column="89" />
-          <folding>
-            <element signature="e#30#78#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/components/admin/Experience.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="222">
@@ -657,20 +701,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/pages/admin/_id.vue">
+    <entry file="file://$PROJECT_DIR$/api/src/Entity/User.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="9" column="38" selection-start-line="9" selection-start-column="38" selection-end-line="9" selection-end-column="38" />
+        <state relative-caret-position="453">
+          <caret line="66" column="89" selection-start-line="66" selection-start-column="89" selection-end-line="66" selection-end-column="89" />
           <folding>
-            <element signature="e#4928#4953#0" expanded="true" />
+            <element signature="e#30#78#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/pages/_alias.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1344">
-          <caret line="64" selection-start-line="64" selection-end-line="64" />
+        <state relative-caret-position="266">
+          <caret line="38" column="24" selection-end-line="111" />
           <folding>
             <element signature="e#722#747#0" expanded="true" />
           </folding>
@@ -679,10 +723,27 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/api/src/Entity/Resume.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="483">
-          <caret line="23" column="6" selection-start-line="23" selection-start-column="6" selection-end-line="23" selection-end-column="6" />
+        <state relative-caret-position="210">
+          <caret line="10" column="61" selection-start-line="10" selection-start-column="61" selection-end-line="10" selection-end-column="61" />
           <folding>
             <element signature="e#30#74#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/pages/admin/_id.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="215">
+          <caret line="136" column="16" lean-forward="true" selection-start-line="136" selection-start-column="16" selection-end-line="137" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/pages/_id.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="48" column="107" selection-start-line="48" selection-start-column="107" selection-end-line="48" selection-end-column="107" />
+          <folding>
+            <element signature="e#769#794#0" expanded="true" />
           </folding>
         </state>
       </provider>
