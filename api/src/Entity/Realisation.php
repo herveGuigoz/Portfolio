@@ -39,9 +39,10 @@ class Realisation
     private $technos;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Resume", inversedBy="realisations")
+     * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="realisations")
      */
-    private $resume;
+    private $user;
+
 
     public function getId(): ?int
     {
@@ -96,15 +97,16 @@ class Realisation
         return $this;
     }
 
-    public function getResume(): ?Resume
+    public function getUser(): ?User
     {
-        return $this->resume;
+        return $this->user;
     }
 
-    public function setResume(?Resume $resume): self
+    public function setUser(?User $user): self
     {
-        $this->resume = $resume;
+        $this->user = $user;
 
         return $this;
     }
+
 }

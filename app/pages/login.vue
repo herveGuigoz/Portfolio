@@ -59,9 +59,8 @@
                     };
                     this.$store.commit('setAuth', auth)
                     Cookie.set('auth', data.token)
-                    Cookie.set('id', id)
-// TODO: redirect to edit resume
-                    this.$router.push('/')
+                    Cookie.set('id', playload.id)
+                    this.$router.push('/admin/' + playload.id)
                 } catch (error) {
                     console.error(error);
                 }

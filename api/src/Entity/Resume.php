@@ -6,9 +6,13 @@ use ApiPlatform\Core\Annotation\ApiResource;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
- * @ApiResource()
+ * @ApiResource(
+ *     normalizationContext={"groups"={"resume:read"}},
+ *     denormalizationContext={"groups"={"resume:write"}}
+ * )
  * @ORM\Entity(repositoryClass="App\Repository\ResumeRepository")
  */
 class Resume
@@ -22,39 +26,28 @@ class Resume
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     * @Groups({"resume:read", "resume:write"})
      */
     private $description;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     * @Groups({"resume:read", "resume:write"})
      */
     private $situation;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     * @Groups({"resume:read", "resume:write"})
      */
     private $accroche;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Realisation", mappedBy="resume")
-     */
-    private $realisations;
-
-    /**
-     * @ORM\OneToOne(targetEntity="App\Entity\User", inversedBy="resume", cascade={"persist", "remove"})
+     * @ORM\OneToOne(targetEntity="App\Entity\User", mappedBy="resume", cascade={"persist", "remove"})
+     * @Groups({"resume:read", "resume:write"})
      */
     private $user;
 
-    /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Experience", mappedBy="resume")
-     */
-    private $experiences;
-
-    public function __construct()
-    {
-        $this->realisations = new ArrayCollection();
-        $this->experiences = new ArrayCollection();
-    }
 
     public function getId(): ?int
     {
@@ -97,37 +90,6 @@ class Resume
         return $this;
     }
 
-    /**
-     * @return Collection|Realisation[]
-     */
-    public function getRealisations(): Collection
-    {
-        return $this->realisations;
-    }
-
-    public function addRealisation(Realisation $realisation): self
-    {
-        if (!$this->realisations->contains($realisation)) {
-            $this->realisations[] = $realisation;
-            $realisation->setResume($this);
-        }
-
-        return $this;
-    }
-
-    public function removeRealisation(Realisation $realisation): self
-    {
-        if ($this->realisations->contains($realisation)) {
-            $this->realisations->removeElement($realisation);
-            // set the owning side to null (unless already changed)
-            if ($realisation->getResume() === $this) {
-                $realisation->setResume(null);
-            }
-        }
-
-        return $this;
-    }
-
     public function getUser(): ?User
     {
         return $this->user;
@@ -137,37 +99,13 @@ class Resume
     {
         $this->user = $user;
 
-        return $this;
-    }
-
-    /**
-     * @return Collection|Experience[]
-     */
-    public function getExperiences(): Collection
-    {
-        return $this->experiences;
-    }
-
-    public function addExperience(Experience $experience): self
-    {
-        if (!$this->experiences->contains($experience)) {
-            $this->experiences[] = $experience;
-            $experience->setResume($this);
+        // set (or unset) the owning side of the relation if necessary
+        $newResume = $user === null ? null : $this;
+        if ($newResume !== $user->getResume()) {
+            $user->setResume($newResume);
         }
 
         return $this;
     }
 
-    public function removeExperience(Experience $experience): self
-    {
-        if ($this->experiences->contains($experience)) {
-            $this->experiences->removeElement($experience);
-            // set the owning side to null (unless already changed)
-            if ($experience->getResume() === $this) {
-                $experience->setResume(null);
-            }
-        }
-
-        return $this;
-    }
 }

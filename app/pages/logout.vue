@@ -2,7 +2,7 @@
 
 </template>
 <script>
-    const Cookie = process.client ? require('js-cookie') : undefined
+    const Cookie = require('js-cookie')
 
     export default {
         middleware: 'authenticated',

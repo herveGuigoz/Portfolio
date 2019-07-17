@@ -7,9 +7,11 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
 use ApiPlatform\Core\Annotation\ApiResource;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * @ApiResource(
+ *     normalizationContext={"groups"={"user:read"}},
  * )
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
  */
@@ -40,23 +42,47 @@ class User implements UserInterface
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups({"resume:read", "user:read"})
      */
     private $firstname;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups({"resume:read", "user:read"})
      */
     private $lastname;
 
     /**
-     * @ORM\OneToOne(targetEntity="App\Entity\Resume", mappedBy="user", cascade={"persist", "remove"})
+     * @ORM\OneToMany(targetEntity="App\Entity\Experience", mappedBy="user")
+     * @Groups({"resume:read", "user:read"})
+     */
+    private $experiences;
+
+    /**
+     * @ORM\OneToOne(targetEntity="App\Entity\Resume", inversedBy="user", cascade={"persist", "remove"})
      */
     private $resume;
 
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Realisation", mappedBy="user")
+     * @Groups({"resume:read"})
+     */
+    private $realisations;
+
+
     public function __construct()
     {
-        $this->realisations = new ArrayCollection();
         $this->experiences = new ArrayCollection();
+        $this->realisations = new ArrayCollection();
+    }
+
+    /**
+     * Pour savoir si un user a deja un resume ou non
+     * @return bool
+     * @Groups({"user:read", "resume:read"})
+     */
+    public function isActive() {
+        return $this->resume ? true : false;
     }
 
     public function getId(): ?int
@@ -161,6 +187,37 @@ class User implements UserInterface
         return $this;
     }
 
+    /**
+     * @return Collection|Experience[]
+     */
+    public function getExperiences(): Collection
+    {
+        return $this->experiences;
+    }
+
+    public function addExperience(Experience $experience): self
+    {
+        if (!$this->experiences->contains($experience)) {
+            $this->experiences[] = $experience;
+            $experience->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeExperience(Experience $experience): self
+    {
+        if ($this->experiences->contains($experience)) {
+            $this->experiences->removeElement($experience);
+            // set the owning side to null (unless already changed)
+            if ($experience->getUser() === $this) {
+                $experience->setUser(null);
+            }
+        }
+
+        return $this;
+    }
+
     public function getResume(): ?Resume
     {
         return $this->resume;
@@ -170,12 +227,38 @@ class User implements UserInterface
     {
         $this->resume = $resume;
 
-        // set (or unset) the owning side of the relation if necessary
-        $newUser = $resume === null ? null : $this;
-        if ($newUser !== $resume->getUser()) {
-            $resume->setUser($newUser);
+        return $this;
+    }
+
+    /**
+     * @return Collection|Realisation[]
+     */
+    public function getRealisations(): Collection
+    {
+        return $this->realisations;
+    }
+
+    public function addRealisation(Realisation $realisation): self
+    {
+        if (!$this->realisations->contains($realisation)) {
+            $this->realisations[] = $realisation;
+            $realisation->setUser($this);
         }
 
         return $this;
     }
+
+    public function removeRealisation(Realisation $realisation): self
+    {
+        if ($this->realisations->contains($realisation)) {
+            $this->realisations->removeElement($realisation);
+            // set the owning side to null (unless already changed)
+            if ($realisation->getUser() === $this) {
+                $realisation->setUser(null);
+            }
+        }
+
+        return $this;
+    }
+
 }

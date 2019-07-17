@@ -7,7 +7,6 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
- * @ApiResource()
  * @ORM\Entity(repositoryClass="App\Repository\ExperienceRepository")
  *
  */
@@ -31,12 +30,8 @@ class Experience
     private $titre;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="text")
      * @Assert\NotBlank
-     * @Assert\Length(
-     *      max = 255,
-     *      maxMessage = "Max 255 characters"
-     * )
      */
     private $description;
 
@@ -50,10 +45,6 @@ class Experience
      */
     private $technos;
 
-    /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Resume", inversedBy="experiences")
-     */
-    private $resume;
 
     /**
      * @ORM\Column(type="integer")
@@ -61,6 +52,11 @@ class Experience
      * @Assert\NotBlank
      */
     private $year;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="experiences")
+     */
+    private $user;
 
     public function getId(): ?int
     {
@@ -103,18 +99,6 @@ class Experience
         return $this;
     }
 
-    public function getResume(): ?Resume
-    {
-        return $this->resume;
-    }
-
-    public function setResume(?Resume $resume): self
-    {
-        $this->resume = $resume;
-
-        return $this;
-    }
-
     public function getYear(): ?int
     {
         return $this->year;
@@ -123,6 +107,18 @@ class Experience
     public function setYear(int $year): self
     {
         $this->year = $year;
+
+        return $this;
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): self
+    {
+        $this->user = $user;
 
         return $this;
     }
