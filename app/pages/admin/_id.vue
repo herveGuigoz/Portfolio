@@ -1,5 +1,10 @@
 <template>
     <div>
+        <div class="flex justify-end px-3">
+            <button @click="logout">
+                Logout
+            </button>
+        </div>
         <Experience v-if="experienceIsOpen"
                     @cancel="close"/>
         <!-- TODO if resume Edit your resume-->
@@ -40,11 +45,13 @@
                 <button class="bg-teal-500 hover:bg-teal-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">
                     test
                 </button>
+                {{ user.id }}
             </div>
         </div>
     </div>
 </template>
 <script>
+    const Cookie = process.client ? require('js-cookie') : undefined
     import axios from 'axios'
     import Experience from '@/components/admin/Experience'
     import Input from '@/components/UI/Input'
@@ -63,16 +70,52 @@
         },
         data() {
             return {
-                experienceIsOpen : false
+                experienceIsOpen : false,
+                error: null,
+                exp : {
+                    titre : '',
+                    description : '',
+                    technos : '',
+                    year: '',
+                }
             }
         },
-        async asyncData () {
-            const { data } = await axios.get('https://jsonplaceholder.typicode.com/users')
-            return { users: data }
+        async asyncData ({ store, params, error }) {
+            try {
+                const token = store.getters.getToken
+                const config = {
+                    headers: {'Authorization': "Bearer " + token}
+                };
+                const { data } = await axios.get("http://127.0.0.1:8000/api/users/" + params.id,
+                config)
+                // TODO/ Virer ce console.log
+                console.log(data)
+                return { user: data }
+            } catch (e) {
+                console.log(e)
+                //error({ message: 'User not found', statusCode: 404 })
+            }
         },
         methods: {
             close() {
                 this.experienceIsOpen = false
+            },
+            logout () {
+                Cookie.remove('auth')
+                Cookie.remove('id')
+                this.$store.commit('setAuth', null)
+                this.$router.push('/login')
+            },
+            async postExp() {
+                try {
+                    const token = store.getters.getToken
+                    const config = {
+                        headers: {'Authorization': "Bearer " + token}
+                    };
+
+                } catch(e) {
+                    console.log(e)
+                }
             }
         }
     }

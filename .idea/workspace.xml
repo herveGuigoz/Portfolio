@@ -11,20 +11,10 @@
       <change afterPath="$PROJECT_DIR$/app/middleware/notAuthenticated.js" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/app/pages/admin/_id.vue" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/app/pages/login.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/pages/logout.vue" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/app/pages/signin.vue" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/app/store/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/src/Entity/Experience.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/Entity/Experience.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/src/Entity/Realisation.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/Entity/Realisation.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api/src/Entity/Resume.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/Entity/Resume.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/Entity/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/src/Migrations/Version20190716193523.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/middleware/notAuthenticated.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/middleware/notAuthenticated.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/pages/admin/experience.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/pages/admin/index.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/pages/login.vue" beforeDir="false" afterPath="$PROJECT_DIR$/app/pages/login.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/pages/logout.vue" beforeDir="false" afterPath="$PROJECT_DIR$/app/pages/logout.vue" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -40,7 +30,16 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/pages/login.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="389">
+              <caret line="64" column="41" selection-start-line="64" selection-start-column="41" selection-end-line="64" selection-end-column="41" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/api/src/Entity/Experience.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="189">
@@ -55,8 +54,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/api/src/Entity/User.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="404">
-              <caret line="81" column="42" selection-start-line="81" selection-start-column="42" selection-end-line="81" selection-end-column="42" />
+            <state relative-caret-position="115">
+              <caret line="23" column="29" selection-start-line="23" selection-start-column="29" selection-end-line="23" selection-end-column="29" />
               <folding>
                 <element signature="e#30#78#0#PHP" expanded="true" />
               </folding>
@@ -67,41 +66,20 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/api/src/Entity/Resume.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-202">
-              <caret line="44" column="7" lean-forward="true" selection-start-line="44" selection-start-column="7" selection-end-line="44" selection-end-column="7" />
-              <folding>
-                <element signature="e#30#74#0#PHP" expanded="true" />
-              </folding>
+            <state relative-caret-position="189">
+              <caret line="9" selection-start-line="9" selection-end-line="10" selection-end-column="61" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/pages/admin/_id.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1134">
-              <caret line="54" column="31" selection-start-line="54" selection-start-column="31" selection-end-line="54" selection-end-column="31" />
+            <state relative-caret-position="1638">
+              <caret line="78" column="29" selection-start-line="78" selection-start-column="29" selection-end-line="78" selection-end-column="29" />
               <folding>
                 <element signature="e#1447#1472#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/middleware/authenticated.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="5" column="1" selection-start-line="5" selection-start-column="1" selection-end-line="5" selection-end-column="1" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/middleware/notAuthenticated.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="21">
-              <caret line="1" column="44" selection-start-line="1" selection-start-column="44" selection-end-line="1" selection-end-column="44" />
             </state>
           </provider>
         </entry>
@@ -118,7 +96,7 @@
     </findStrings>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/app" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -154,13 +132,13 @@
         <option value="$PROJECT_DIR$/app/components/admin/experiences.vue" />
         <option value="$PROJECT_DIR$/app/components/admin/Experience.vue" />
         <option value="$PROJECT_DIR$/app/pages/admin/index.vue" />
-        <option value="$PROJECT_DIR$/app/pages/admin/_id.vue" />
-        <option value="$PROJECT_DIR$/api/src/Entity/Resume.php" />
         <option value="$PROJECT_DIR$/app/middleware/authenticated.js" />
-        <option value="$PROJECT_DIR$/app/middleware/notAuthenticated.js" />
         <option value="$PROJECT_DIR$/app/pages/login.vue" />
-        <option value="$PROJECT_DIR$/api/src/Entity/User.php" />
         <option value="$PROJECT_DIR$/api/src/Entity/Experience.php" />
+        <option value="$PROJECT_DIR$/api/src/Entity/Resume.php" />
+        <option value="$PROJECT_DIR$/app/middleware/notAuthenticated.js" />
+        <option value="$PROJECT_DIR$/api/src/Entity/User.php" />
+        <option value="$PROJECT_DIR$/app/pages/admin/_id.vue" />
       </list>
     </option>
   </component>
@@ -283,11 +261,10 @@
       <path value="$PROJECT_DIR$/api/vendor/lexik/jwt-authentication-bundle" />
     </include_path>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="23" />
-    <option name="y" value="36" />
-    <option name="width" value="1847" />
-    <option name="height" value="977" />
+  <component name="ProjectFrameBounds">
+    <option name="y" value="23" />
+    <option name="width" value="1280" />
+    <option name="height" value="729" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -306,20 +283,32 @@
             <path>
               <item name="Folio" type="b2602c69:ProjectViewProjectNode" />
               <item name="Folio" type="462c0819:PsiDirectoryNode" />
-              <item name="api" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Folio" type="b2602c69:ProjectViewProjectNode" />
               <item name="Folio" type="462c0819:PsiDirectoryNode" />
-              <item name="api" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="middleware" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Folio" type="b2602c69:ProjectViewProjectNode" />
               <item name="Folio" type="462c0819:PsiDirectoryNode" />
-              <item name="api" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Entity" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Folio" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Folio" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Folio" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Folio" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="store" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -360,15 +349,15 @@
       <updated>1563283598335</updated>
       <workItem from="1563283604713" duration="29913000" />
       <workItem from="1563328922619" duration="1709000" />
-      <workItem from="1563347313149" duration="5356000" />
+      <workItem from="1563347313149" duration="10080000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="36978000" />
+    <option name="totallyTimeSpent" value="41702000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1280" height="729" extended-state="6" />
+    <frame x="0" y="23" width="1280" height="729" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" />
@@ -551,13 +540,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/pages/logout.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="10" column="42" lean-forward="true" selection-start-line="10" selection-start-column="42" selection-end-line="10" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/components/UI/Button.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="42">
@@ -585,13 +567,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/store/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="574">
-          <caret line="34" selection-start-line="34" selection-end-line="34" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/components/admin/Experience.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="609">
@@ -609,13 +584,41 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/pages/admin/_id.vue">
+    <entry file="file://$PROJECT_DIR$/api/src/Entity/Experience.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1134">
-          <caret line="54" column="31" selection-start-line="54" selection-start-column="31" selection-end-line="54" selection-end-column="31" />
+        <state relative-caret-position="189">
+          <caret line="9" selection-start-line="9" selection-end-line="9" />
           <folding>
-            <element signature="e#1447#1472#0" expanded="true" />
+            <element signature="e#30#74#0#PHP" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/src/Entity/Resume.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="9" selection-start-line="9" selection-end-line="10" selection-end-column="61" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/store/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="490">
+          <caret line="30" column="12" selection-start-line="30" selection-start-column="4" selection-end-line="30" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/pages/logout.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="231">
+          <caret line="11" column="12" selection-start-line="11" selection-start-column="12" selection-end-line="11" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/middleware/notAuthenticated.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="5" column="1" selection-start-line="5" selection-start-column="1" selection-end-line="5" selection-end-column="1" />
         </state>
       </provider>
     </entry>
@@ -626,46 +629,29 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/middleware/notAuthenticated.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="21">
-          <caret line="1" column="44" selection-start-line="1" selection-start-column="44" selection-end-line="1" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/pages/login.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="753">
-          <caret line="64" column="41" lean-forward="true" selection-start-line="64" selection-start-column="41" selection-end-line="64" selection-end-column="41" />
+        <state relative-caret-position="389">
+          <caret line="64" column="41" selection-start-line="64" selection-start-column="41" selection-end-line="64" selection-end-column="41" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/api/src/Entity/User.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="404">
-          <caret line="81" column="42" selection-start-line="81" selection-start-column="42" selection-end-line="81" selection-end-column="42" />
+        <state relative-caret-position="115">
+          <caret line="23" column="29" selection-start-line="23" selection-start-column="29" selection-end-line="23" selection-end-column="29" />
           <folding>
             <element signature="e#30#78#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/api/src/Entity/Resume.php">
+    <entry file="file://$PROJECT_DIR$/app/pages/admin/_id.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-202">
-          <caret line="44" column="7" lean-forward="true" selection-start-line="44" selection-start-column="7" selection-end-line="44" selection-end-column="7" />
+        <state relative-caret-position="1638">
+          <caret line="78" column="29" selection-start-line="78" selection-start-column="29" selection-end-line="78" selection-end-column="29" />
           <folding>
-            <element signature="e#30#74#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/api/src/Entity/Experience.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="9" selection-start-line="9" selection-end-line="9" />
-          <folding>
-            <element signature="e#30#74#0#PHP" expanded="true" />
+            <element signature="e#1447#1472#0" expanded="true" />
           </folding>
         </state>
       </provider>
