@@ -35,7 +35,7 @@
                             Send
                         </button>
                         <a class="inline-block align-baseline font-bold text-sm text-teal-500 hover:text-teal-800" href="#">
-                            <nuxt-link to="/login">Already an account ? Login</nuxt-link>
+                            <nuxt-link to="/">Already an account ? Login</nuxt-link>
                         </a>
                     </div>
                 </div>

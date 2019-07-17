@@ -38,7 +38,7 @@
             <div class="title">Techno</div>
             <div class="bordered"></div>
             <div class="col">
-              <div class="experiences titre pt1" v-for="techno in technos" :key="techno">
+              <div class="experiences titre pt1" v-for="(techno, index) in technos" :key="index">
                 {{ techno }}
               </div>
               <div class="experiences"></div>
@@ -48,7 +48,7 @@
             <div class="title">Soft Skill</div>
             <div class="bordered"></div>
             <div class="col">
-              <div class="experiences titre pt1" v-for="softskill in softskills" :key="softskill">
+              <div class="experiences titre pt1" v-for="(softskill, index) in softskills" :key="index">
                 {{ softskill }}
               </div>
             </div>
@@ -62,21 +62,11 @@
 <script>
 export default {
   name:'modal',
-  data(){
-    return {
-      technos: null,
-      softSkills: null
-    }
-  },
   props: {
     showContent: Boolean,
-    resume: Object
-  },
-  computed: {
-    toArray(){
-      this.technos = this.resume.techno.split(',')
-      this.softSkills = this.resume.softSkills.split(',')
-    }
+    resume: Object,
+    technos: Array,
+    softskills: Array
   }
 }
 </script>

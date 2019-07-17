@@ -17,6 +17,8 @@
                     @hideContent="showContent = false"
                     :showContent="this.showContent"
                     v-bind:resume="resume"
+                    v-bind:technos="technos"
+                    v-bind:softskills="softskills"
             />
         </transition>
     </div>
@@ -52,29 +54,14 @@
             return {
                 isOpen: false,
                 showContent: false,
-                experiences : [
-                    {
-                        titre: 'DEVELOPPEUR PHP - SYMFONY',
-                        location: 'Lyon',
-                        mission: "Creation d’un journal vidéo sous Symfony 4. Les fonctionnalités développées sont : la gestion des comptes (créateur et internaute), la gestion des vidéos par le créateur, l’affichage du journal vidéo, la gestion des commentaires, la mise en place de statistiques (vues, likes), la gestion des abonnements et des notifications.",
-                        techno: ['Symfony', 'Javascript', 'UIkit', 'Git', 'PHP Unit']
-                    },
-                    {
-                        titre: 'DEVELOPPEUR PHP',
-                        location: 'Lyon',
-                        mission: 'Creation un site de promotion et de gestion des reservations hôtelière (design pattern MVC) avec manipulation des ressources d’une base de données (MySQL).',
-                        techno: ['PHP', 'SQL', 'VueJs', 'Javascript', 'Material Design', 'Git']
-                    }
-                ],
-                softskills : [
-                    'Disponibilité et engagement',
-                    'Résistance au stress',
-                    'Initiative',
-                    'Rigueur et Précision',
-                    'Respect des règles, des standards et des méthodes',
-                    'Travail en équipe',
-                    "Communication aisée, Capacité d'écoute"
-                ]
+                technos: [],
+                softskills: []
+            }
+        },
+        computed: {
+            toArray() {
+                this.technos = this.resume.techno.split(',')
+                this.softskills = this.resume.softSkills.split(',')
             }
         }
     }

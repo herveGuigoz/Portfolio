@@ -8,7 +8,6 @@
         <Experience v-bind:res="resume"
                     v-if="experienceIsOpen"
                     @hide-xp="close"/>
-        <!-- TODO if resume Edit your resume-->
         <div v-if="!experienceIsOpen">
             <p class="px-3">Create your resume</p>
             <div class="flex pt-3">
@@ -139,8 +138,7 @@
                 config)
                 return { resume: data['hydra:member'][0] }
             } catch (e) {
-                console.log(e)
-                //error({ message: 'Page not found', statusCode: 404 })
+                error({ message: 'Page not found', statusCode: 404 })
             }
         },
         methods: {
@@ -152,18 +150,7 @@
                 Cookie.remove('auth')
                 Cookie.remove('id')
                 this.$store.commit('setAuth', null)
-                this.$router.push('/login')
-            },
-            async postExp() {
-                try {
-                    const token = store.getters.getToken
-                    const config = {
-                        headers: {'Authorization': "Bearer " + token}
-                    };
-
-                } catch(e) {
-                    console.log(e)
-                }
+                this.$router.push('/')
             },
             async put() {
                 const data= {
@@ -180,7 +167,8 @@
                         headers: {'Authorization': "Bearer " + token}
                     };
                     await axios.put("http://localhost:8000/api/resumes/" + iri.slice(-1), data, config)
-                    console.log('cool')
+                    const alias = this.resume.user.firstname.toLowerCase() + '-' +this.resume.user.lastname.toLowerCase()
+                    this.$router.push('/' + alias)
                 } catch(e) {
                     console.log(e)
                 }
