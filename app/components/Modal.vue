@@ -38,7 +38,7 @@
             <div class="title">Techno</div>
             <div class="bordered"></div>
             <div class="col">
-              <div class="experiences titre pt1" v-for="(techno, index) in technos" :key="index">
+              <div class="experiences titre pt1 uppercase" v-for="(techno, index) in technos" :key="index">
                 {{ techno }}
               </div>
               <div class="experiences"></div>
@@ -48,7 +48,7 @@
             <div class="title">Soft Skill</div>
             <div class="bordered"></div>
             <div class="col">
-              <div class="experiences titre pt1" v-for="(softskill, index) in softskills" :key="index">
+              <div class="experiences titre pt1 uppercase" v-for="(softskill, index) in softskills" :key="index">
                 {{ softskill }}
               </div>
             </div>

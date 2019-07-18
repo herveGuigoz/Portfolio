@@ -17,8 +17,8 @@
                     @hideContent="showContent = false"
                     :showContent="this.showContent"
                     v-bind:resume="resume"
-                    v-bind:technos="technos"
-                    v-bind:softskills="softskills"
+                    v-bind:technos="resume.techno.split(',')"
+                    v-bind:softskills="resume.softSkills.split(',')"
             />
         </transition>
     </div>
@@ -43,27 +43,17 @@
         async asyncData ({ params, error }) {
             try {
                 const { data } = await axios.get("http://127.0.0.1:8000/api/resumes?user.alias=" + params.alias)
-                console.log(data)
                 return { resume: data['hydra:member'][0] }
             } catch (e) {
-                console.log(e)
-                //error({ message: 'Page not found', statusCode: 404 })
+                error({ message: 'Page not found', statusCode: 404 })
             }
         },
         data: function(){
             return {
                 isOpen: false,
                 showContent: false,
-                technos: [],
-                softskills: []
             }
         },
-        computed: {
-            toArray() {
-                this.technos = this.resume.techno.split(',')
-                this.softskills = this.resume.softSkills.split(',')
-            }
-        }
     }
 </script>
 
