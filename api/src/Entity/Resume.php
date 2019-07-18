@@ -7,18 +7,12 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Serializer\Annotation\Groups;
-use ApiPlatform\Core\Annotation\ApiFilter;
-use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\SearchFilter;
 
 /**
  * @ApiResource(
  *     normalizationContext={"groups"={"resume:read"}},
  *     denormalizationContext={"groups"={"resume:write"}}
  * )
- * @ApiFilter(SearchFilter::class, properties={
- *     "user.id": "exact",
- *     "user.alias": "exact",
- * })
  * @ORM\Entity(repositoryClass="App\Repository\ResumeRepository")
  */
 class Resume
@@ -50,7 +44,7 @@ class Resume
     private $accroche;
 
     /**
-     * @ORM\OneToOne(targetEntity="App\Entity\User", mappedBy="resume", cascade={"persist", "remove"})
+     * @ORM\OneToOne(targetEntity="App\Entity\User", inversedBy="resume", cascade={"persist", "remove"})
      * @Groups({"resume:read"})
      */
     private $user;

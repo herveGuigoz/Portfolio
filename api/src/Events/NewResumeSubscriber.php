@@ -8,10 +8,10 @@ use App\Entity\User;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\HttpKernel\Event\GetResponseForControllerResultEvent;
 use Symfony\Component\HttpKernel\KernelEvents;
+use Symfony\Component\Security\Core\Security;
 
 class NewResumeSubscriber implements EventSubscriberInterface
 {
-
     public static function getSubscribedEvents()
     {
         // Definition de l'event du kernel + hook + methods a éffectuer
@@ -27,8 +27,9 @@ class NewResumeSubscriber implements EventSubscriberInterface
         $method = $event->getRequest()->getMethod();
 
         if($user instanceof User && $method === 'POST') {
+            $user->setAlias(strtolower($user->getFirstname()) . "-" . strtolower($user->getLastname()));
             $resume = new Resume();
-            $user->setResume($resume);
+            $resume->setUser($user);
         }
     }
 }

@@ -70,9 +70,9 @@
                         Technos (separated by commas)
                     </label>
                     <textarea v-model="resume.techno"
-                              class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                              id="technos"
-                              rows="4">
+                            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                            id="technos"
+                            rows="4">
                     </textarea>
                 </div>
             </div>
@@ -162,6 +162,8 @@
                 }
                 const iri = this.resume['@id']
                 const token = this.$store.getters.getToken
+                console.log(this.resume)
+                /*
                 try {
                     const config = {
                         headers: {'Authorization': "Bearer " + token}
@@ -173,6 +175,7 @@
                 } catch(e) {
                     console.log(e)
                 }
+                */
             },
         }
     }

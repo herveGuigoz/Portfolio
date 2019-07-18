@@ -54,18 +54,15 @@ class User implements UserInterface
     private $lastname;
 
     /**
-     * @ORM\OneToOne(targetEntity="App\Entity\Resume", inversedBy="user", cascade={"persist", "remove"})
+     * @ORM\OneToOne(targetEntity="App\Entity\Resume", mappedBy="user", cascade={"persist", "remove"})
      * @Groups({"user:read"})
      */
     private $resume;
 
     /**
-     * @return string
-     * @Groups({"resume:read", "user:read"})
+     * @ORM\Column(type="string", length=255)
      */
-    public function getAlias() {
-        return strtolower($this->getFirstname()) . "-" . strtolower($this->getLastname());
-    }
+    private $alias;
 
     public function getId(): ?int
     {
@@ -179,6 +176,21 @@ class User implements UserInterface
         $this->resume = $resume;
 
         return $this;
+    }
+
+    public function setAlias(string $alias): self
+    {
+        $this->alias = $alias;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     * @Groups({"resume:read", "user:read"})
+     */
+    public function getAlias() {
+        return $this->alias;
     }
 
 }
