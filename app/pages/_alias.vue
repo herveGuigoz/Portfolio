@@ -43,6 +43,7 @@
         async asyncData ({ params, error }) {
             try {
                 const { data } = await axios.get("http://127.0.0.1:8000/api/resumes?user.alias=" + params.alias)
+                console.log(data['hydra:member'][0])
                 return { resume: data['hydra:member'][0] }
             } catch (e) {
                 error({ message: 'Page not found', statusCode: 404 })

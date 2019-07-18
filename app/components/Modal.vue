@@ -25,7 +25,7 @@
             <div class="title">experiences</div>
             <div class="bordered"></div>
             <div class="col" v-for="(experience, index) in resume.experiences" :key="index">
-              <div class="experiences titre pt1">
+              <div class="experiences titre pt1 uppercase">
                 {{ experience.titre }}
               </div>
               <div class="experiences">
