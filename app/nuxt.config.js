@@ -42,6 +42,9 @@ export default {
   moment: {
     locales: ['fr']
   },
+  axios: {
+    progress: true
+  },
   /*
   ** Build configuration
   */

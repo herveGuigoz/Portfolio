@@ -14,12 +14,13 @@ use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\SearchFilter;
  * @ApiResource(
  *     normalizationContext={"groups"={"resume:read"}},
  *     denormalizationContext={"groups"={"resume:write"}},
+ *     collectionOperations={"get"},
  *     itemOperations={
- *         "put"={"access_control"="is_granted('ROLE_USER') and previous_object.user == user"},
+ *         "put"={"access_control"="is_granted('ROLE_USER')"},
  *         "get"
  *     }
  * )
- * @ApiFilter(SearchFilter::class, properties={"user.alias": "exact"})
+ * @ApiFilter(SearchFilter::class, properties={"user.alias": "exact", "user.id": "exact"})
  * @ORM\Entity(repositoryClass="App\Repository\ResumeRepository")
  */
 class Resume
