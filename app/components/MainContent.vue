@@ -1,7 +1,7 @@
 <template>
   <div id="main-content">
     <div class="me">
-      <p>{{ resume.description }}</p>
+      <p ref="anime" id="anime">{{ resume.description }}</p>
     </div>
   </div>
 </template>
@@ -14,7 +14,12 @@ export default {
       type: Object,
       required: true
     }
-  }
+  },
+  mounted() {
+    console.log(this.$refs);
+    
+    },
+
 }
 </script>
 
