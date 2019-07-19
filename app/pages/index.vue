@@ -58,8 +58,9 @@
             id :playload.id
           };
           this.$store.commit('setAuth', auth)
-          Cookie.set('auth', data.token)
-          Cookie.set('id', playload.id)
+          const expire = 1/24
+          Cookie.set('auth', data.token, { expires: expire })
+          Cookie.set('id', playload.id, { expires: expire })
           this.$router.push('/admin/' + playload.id)
         } catch (error) {
           console.error(error);
